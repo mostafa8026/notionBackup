@@ -1,29 +1,149 @@
-/* -------- notionBackup injection -------- */
+@import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css');
+
+/* Global RTL styles */
+html,
+body,
+div,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+li,
+table,
+tr,
+td,
+th,
+blockquote,
+.sans,
+.serif,
+.mono,
+.pdf .sans,
+.pdf .serif,
+.pdf .mono {
+    font-family: 'Vazir', sans-serif !important;
+    direction: rtl !important;
+}
 
 body {
+    text-align: right !important;
     white-space: normal !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: none !important;
 }
 
-p {
-    min-height: 1em !important;
+/* Make article full-width with padding */
+article {
+    width: 100% !important;
+    max-width: none !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 2em 5% !important; /* Add padding */
+    box-sizing: border-box !important; /* Include padding in width calculation */
 }
 
+/* Responsive padding for smaller screens */
+@media only screen and (max-width: 768px) {
+    article {
+        padding: 1em 3% !important;
+    }
+}
+
+/* Reverse text alignment */
+[style*="text-align: left"],
+th,
+td {
+    text-align: right !important;
+}
+
+/* Code blocks and inline code */
 .code,
-code {
-    font-size: 100% !important;
+code,
+pre,
+.pdf .code {
+    font-family: 'Courier New', monospace !important;
+    direction: ltr !important;
+    text-align: left !important;
 }
 
+/* RTL-specific adjustments */
 blockquote {
-    font-size: 100% !important;
+    border-left: none !important;
+    border-right: 3px solid rgb(55, 53, 47) !important;
+    padding-left: 0 !important;
+    padding-right: 1em !important;
 }
 
-.callout {
-    white-space: normal !important;
-}
-.callout div:has(span.icon) {
-    font-size: 100% !important;
+ul, ol {
+    padding-left: 0 !important;
+    padding-right: 1.5em !important;
 }
 
-.source:not(.bookmark) {
-    font-size: 100% !important;
+.table_of_contents-indent-1,
+.table_of_contents-indent-2,
+.table_of_contents-indent-3 {
+    margin-left: 0 !important;
+    margin-right: 1.5rem !important;
+}
+
+.icon,
+.bookmark-href {
+    margin-left: 0.5em !important;
+    margin-right: 0 !important;
+}
+
+/* Flip directional icons */
+.icon-chevron-right::before {
+    content: '\f053' !important; /* Unicode for left-pointing chevron */
+}
+
+.icon-chevron-left::before {
+    content: '\f054' !important; /* Unicode for right-pointing chevron */
+}
+
+/* Override specific Notion styles */
+.collection-content {
+    text-align: right !important;
+}
+
+.column:first-child {
+    padding-right: 0 !important;
+    padding-left: 1em !important;
+}
+
+.column:last-child {
+    padding-left: 0 !important;
+    padding-right: 1em !important;
+}
+
+.bookmark-info {
+    text-align: right !important;
+}
+
+.checkbox {
+    margin-left: 5px !important;
+    margin-right: 2px !important;
+}
+
+/* Preserve LTR for embed content */
+.bookmark,
+.image,
+iframe,
+video,
+.pdf-relative-link-path {
+    direction: ltr !important;
+}
+
+/* Ensure full-width for page content */
+.page-body {
+    width: 100% !important;
+    max-width: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
 }
